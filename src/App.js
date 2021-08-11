@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './Navbar';
+import './app.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="" style={{position:"absolute",left:"0",right:"0"}}>
+        <div class="navbar-container gps-dashboard">
+            <Navbar />
+        </div>
+        <div class="navbar-container gps-navbar">
+
+        </div>
+
+        <div class="container-fluid information-part">
+
+        </div>
+
+        <div class="container-fluid">
+
+        </div>
+
+        <div className="container-fluid" id = "login" style = {{marginTop:"7rem",display: "flex",justifyContent: "center",alignItems: "center"}}>
+
+        </div>
+
+        <div class="" id = "bottom-section">
+
+        </div>
+      </div>
     </div>
   );
 }
