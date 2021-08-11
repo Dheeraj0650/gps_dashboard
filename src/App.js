@@ -1,4 +1,5 @@
 import Navbar from './Navbar';
+import Project from './Projects';
 import './app.css';
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
         </div>
 
         <div class="container-fluid information-part">
-
+           <Project/>
         </div>
 
         <div class="container-fluid">

@@ -17,8 +17,6 @@ return (<nav class="navbar navbar-expand-lg navbar-light" style={{backgroundColo
             <a class="nav-link" href="#bottom-section" ><button type="button" className="nav-button">Dashboard</button></a>
           </li>
           <li class="nav-item">
-
-
             <div class="dropdown nav-link">
                 <button class="nav-button dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-user fa-lg"></i>
@@ -29,10 +27,6 @@ return (<nav class="navbar navbar-expand-lg navbar-light" style={{backgroundColo
                   <button class="dropdown-item" type="button">Logout</button>
                 </div>
              </div>
-
-
-
-
           </li>
         </ul>
       </div>
