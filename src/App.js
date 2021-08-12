@@ -1,4 +1,5 @@
 import Navbar from './Navbar';
+import Navbar_2 from './Navbar-2';
 import Project from './Projects';
 import './app.css';
 
@@ -10,11 +11,11 @@ function App() {
             <Navbar />
         </div>
         <div class="navbar-container gps-navbar">
-
+            <Navbar_2/>
         </div>
 
-        <div class="container-fluid information-part">
-           <Project/>
+        <div class="projects-part">
+           <Project />
         </div>
 
         <div class="container-fluid">

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 function project(){
-  return (<div class="container">
+  return (<div class="container-fluid">
   <div class="row">
     <div class="col">
       1 of 2
@@ -10,17 +10,11 @@ function project(){
     <div class="col">
       2 of 2
     </div>
-  </div>
-  <div class="row">
     <div class="col">
-      1 of 3
-    </div>
-    <div class="col">
-      2 of 3
-    </div>
-    <div class="col">
-      3 of 3
+      2 of 2
     </div>
   </div>
 </div>);
 }
+
+export default project;
