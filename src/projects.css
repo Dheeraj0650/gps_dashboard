@@ -1,11 +1,12 @@
 .projects{
   display: grid;
+  position: relative;
   grid-template-columns: 50% 50%;
   grid-gap: 1rem;
   text-align: center;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width:1080px) {
   .projects{
     display: grid;
     grid-template-columns: 100%;

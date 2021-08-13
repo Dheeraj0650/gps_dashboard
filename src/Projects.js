@@ -51,7 +51,7 @@ function project(){
     'link2':'https://upload.wikimedia.org/wikipedia/commons/a/a5/Virat_Kohli_in_New_Delhi_on_December_2018.jpg'
   }];
 
-  return (<div class="container-fluid" style = {{paddingTop:"50px"}}>
+  return (<div class="container-fluid" style = {{paddingTop:"30px"}}>
   <div class="row">
     <div class="col-md-3">
       {announcementsArray.map((info) => (
@@ -75,6 +75,8 @@ function project(){
       ))}
     </div>
     <div class="col-md-3">
+      <SocialFeedCard />
+      <SocialFeedCard />
       <SocialFeedCard />
     </div>
   </div>

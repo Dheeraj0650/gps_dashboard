@@ -2,7 +2,7 @@ import './projects.css';
 
 export default function(){
     return (
-      <div class="container mt-4 mb-5">
+      <div class="" style = {{margin:"0px"}}>
           <div class="d-flex justify-content-center row">
               <div class="feed p-2">
                   <div class="bg-white border mt-2">

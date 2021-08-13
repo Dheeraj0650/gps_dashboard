@@ -1,24 +1,30 @@
 import React from 'react';
-import Logo from './Logo';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import { makeStyles } from '@material-ui/core/styles';
 
-function Navbar_2(){
-return (
-          <ul class="nav nav-pills mb-3 nav-fill" id="pills-tab" role="tablist" style={{fontFamily:"'Noto Sans JP',sans-serif",paddingTop:"10px"}}>
-            <li class="nav-item" role="presentation">
-              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Current Projects</a>
-            </li>
-            <li class="nav-item" role="presentation">
-              <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">SPOC</a>
-            </li>
-            <li class="nav-item" role="presentation">
-              <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Imp Links</a>
-            </li>
-            <li class="nav-item" role="presentation">
-              <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Social Team</a>
-            </li>
-          </ul>
-    );
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+}));
 
+export default function BasicButtonGroup() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <ButtonGroup variant="text" color="primary" aria-label="text primary button group" fullWidth = "true">
+        <Button><span style={{fontFamily: "'Noto Sans JP', sans-serif",fontSize:"1rem"}}>Current Projects</span></Button>
+        <Button><span style={{fontFamily: "'Noto Sans JP', sans-serif",fontSize:"1rem"}}>SPOC</span></Button>
+        <Button><span style={{fontFamily: "'Noto Sans JP', sans-serif",fontSize:"1rem"}}>Imp Links</span></Button>
+        <Button><span style={{fontFamily: "'Noto Sans JP', sans-serif",fontSize:"1rem"}}>Social Team</span></Button>
+      </ButtonGroup>
+    </div>
+  );
 }
-
-export default Navbar_2;
