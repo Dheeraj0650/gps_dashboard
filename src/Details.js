@@ -25,10 +25,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FolderList(props) {
   const classes = useStyles();
-
+  
   return (
-    <List className={classes.root} >
-      <ListItem>
+    <List className={classes.root}>
+      <ListItem >
         <ListItemAvatar>
           <Avatar>
             <PublicIcon />
