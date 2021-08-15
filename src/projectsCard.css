@@ -21,7 +21,6 @@ $wizard: #4FACFF;
 }
 
 .clash-card__image--barbarian {
-  background: url('https://placeimg.com/640/480/nature');
   img {
     width: 400px;
     position: absolute;

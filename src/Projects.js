@@ -10,6 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import {NavLink} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -23,24 +24,57 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Project = () => {
-  const [region, setRegion] = React.useState('');
-  useEffect(() => {
+  const [projectsArray,setProjectsArray] = useState([]);
+  const [announcementsArray,setAnnouncementsArray] = useState([]);
+
+  function fetchData(region){
     if(region === ""){
       fetch('https://pacific-tundra-98620.herokuapp.com/projects')
-          .then((response) => {
-            console.log(response.json());
-            return response.json();
-          })
-          .then((data) => {
-            console.log(data);
+      .then((response) => {
+          var data = response.json();
+          var p = Promise.resolve(data);
+           p.then(function(values) {
+              console.log(values)
+              setProjectsArray(values)
            });
+      })
     }
-  }, [region]);
+    else{
+      fetch('https://pacific-tundra-98620.herokuapp.com/projects/' + region)
+      .then((response) => {
+          var data = response.json();
+          var p = Promise.resolve(data);
+           p.then(function(values) {
+             console.log(values)
+             setProjectsArray(values)
+           });
+      })
+    }
+  }
+
+  function fetctAnnouncements(){
+    fetch('https://pacific-tundra-98620.herokuapp.com/announcements')
+    .then((response) => {
+        var data = response.json();
+        var p = Promise.resolve(data);
+         p.then(function(values) {
+            console.log(values)
+            setAnnouncementsArray(values)
+         });
+    })
+  }
+
+  useEffect(()=>{
+    fetchData('');
+    fetctAnnouncements();
+  },[])
+
+  console.log('hello_1' + projectsArray);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
-    setRegion(event.target.value);
+    fetchData(event.target.value);
   };
 
   const handleClose = () => {
@@ -51,49 +85,6 @@ const Project = () => {
     setOpen(true);
   };
 
-  let announcementsArray = [{
-    'title':'hello',
-    'message':'bye bye',
-    'image':'https://placeimg.com/640/480/nature'
-  },
-  {
-    'title':'hello',
-    'message':'bye bye',
-    'image':'https://upload.wikimedia.org/wikipedia/commons/a/a5/Virat_Kohli_in_New_Delhi_on_December_2018.jpg'
-  },
-  {
-    'title':'hello',
-    'message':'bye bye',
-    'image':'https://upload.wikimedia.org/wikipedia/commons/a/a5/Virat_Kohli_in_New_Delhi_on_December_2018.jpg'
-  }];
-
-  let projectsArray = [{
-    'name':'hello',
-    'country':'india',
-    'startDate':'10',
-    'endDate':'20',
-    'image':'https://placeimg.com/640/480/nature',
-    'link1':'https://upload.wikimedia.org/wikipedia/commons/a/a5/Virat_Kohli_in_New_Delhi_on_December_2018.jpg',
-    'link2':'https://upload.wikimedia.org/wikipedia/commons/a/a5/Virat_Kohli_in_New_Delhi_on_December_2018.jpg'
-  },
-  {
-    'name':'hello',
-    'country':'india',
-    'startDate':'10',
-    'endDate':'20',
-    'image':'https://placeimg.com/640/480/nature',
-    'link1':'https://upload.wikimedia.org/wikipedia/commons/a/a5/Virat_Kohli_in_New_Delhi_on_December_2018.jpg',
-    'link2':'https://upload.wikimedia.org/wikipedia/commons/a/a5/Virat_Kohli_in_New_Delhi_on_December_2018.jpg'
-  },
-  {
-    'name':'hello',
-    'country':'india',
-    'startDate':'10',
-    'endDate':'20',
-    'image':'https://placeimg.com/640/480/nature',
-    'link1':'https://upload.wikimedia.org/wikipedia/commons/a/a5/Virat_Kohli_in_New_Delhi_on_December_2018.jpg',
-    'link2':'https://upload.wikimedia.org/wikipedia/commons/a/a5/Virat_Kohli_in_New_Delhi_on_December_2018.jpg'
-  }];
 
   return (<div class="container-fluid" style = {{paddingTop:"30px"}}>
   <div class="row">
@@ -117,11 +108,10 @@ const Project = () => {
                     open={open}
                     onClose={handleClose}
                     onOpen={handleOpen}
-                    value={region}
                     onChange={handleChange}
                   >
                     <MenuItem value="">
-                      <em>None</em>
+                      <em>All</em>
                     </MenuItem>
                     <MenuItem value={'APAC'}>APAC</MenuItem>
                     <MenuItem value={'EUROPE'}>EUROPE</MenuItem>
@@ -135,15 +125,17 @@ const Project = () => {
       <div className = "row">
         <div className = "col-lg-12 projects">
           {projectsArray.map((info) => (
-            <ProjectsCard
-              name = {info.name}
-              country = {info.country}
-              startDate = {info.startDate}
-              endDate = {info.endDate}
-              image = {info.image}
-              link1 = {info.link1}
-              link2 = {info.link2}
-            />
+            <NavLink to = {`/project-details/${info.name}/${info.country}/${info.city}`} style = {{textDecoration: "none"}}>
+              <ProjectsCard
+                name = {info.name}
+                country = {info.country}
+                startDate = {info.startDate}
+                endDate = {info.endDate}
+                image = {info.image}
+                link1 = {info.link1}
+                link2 = {info.link2}
+              />
+            </NavLink>
           ))}
         </div>
       </div>
