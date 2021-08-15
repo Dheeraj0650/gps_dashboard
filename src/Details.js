@@ -27,7 +27,7 @@ export default function FolderList(props) {
   const classes = useStyles();
 
   return (
-    <List className={classes.root}>
+    <List className={classes.root} >
       <ListItem>
         <ListItemAvatar>
           <Avatar>

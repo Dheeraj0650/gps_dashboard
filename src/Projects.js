@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Announcements from './Announcements';
 import ProjectsCard from './projectsCard';
 import SocialFeedCard from './socialFeedCard';
+import Dropdown from './Dropdown';
 import './projects.css';
 
 function project(){
@@ -53,7 +54,7 @@ function project(){
 
   return (<div class="container-fluid" style = {{paddingTop:"30px"}}>
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3" style={{textAlign:"center",marginTop:"30px"}}>
       {announcementsArray.map((info) => (
         <Announcements
           title = {info.title}
@@ -61,18 +62,27 @@ function project(){
           image = {info.image}/>
       ))}
     </div>
-    <div class="col-md-6 projects">
-      {projectsArray.map((info) => (
-        <ProjectsCard
-          name = {info.name}
-          country = {info.country}
-          startDate = {info.startDate}
-          endDate = {info.endDate}
-          image = {info.image}
-          link1 = {info.link1}
-          link2 = {info.link2}
-        />
-      ))}
+    <div class="col-md-6">
+      <div class = "row">
+        <div class = "col-lg-12" style={{textAlign:"center",paddingBottom:"20px"}}>
+          <Dropdown/>
+        </div>
+      </div>
+      <div className = "row">
+        <div className = "col-lg-12 projects">
+          {projectsArray.map((info) => (
+            <ProjectsCard
+              name = {info.name}
+              country = {info.country}
+              startDate = {info.startDate}
+              endDate = {info.endDate}
+              image = {info.image}
+              link1 = {info.link1}
+              link2 = {info.link2}
+            />
+          ))}
+        </div>
+      </div>
     </div>
     <div class="col-md-3">
       <SocialFeedCard />
