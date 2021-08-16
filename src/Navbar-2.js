@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { makeStyles } from '@material-ui/core/styles';
+import {NavLink} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,10 +21,10 @@ export default function BasicButtonGroup() {
   return (
     <div className={classes.root}>
       <ButtonGroup variant="text" color="primary" aria-label="text primary button group" fullWidth = "true">
-        <Button><span style={{fontFamily: "'Noto Sans JP', sans-serif",fontSize:"1rem"}}>Current Projects</span></Button>
-        <Button><span style={{fontFamily: "'Noto Sans JP', sans-serif",fontSize:"1rem"}}>SPOC</span></Button>
-        <Button><span style={{fontFamily: "'Noto Sans JP', sans-serif",fontSize:"1rem"}}>Imp Links</span></Button>
-        <Button><span style={{fontFamily: "'Noto Sans JP', sans-serif",fontSize:"1rem"}}>Social Team</span></Button>
+        <Button><span style={{fontFamily: "'Noto Sans JP', sans-serif",fontSize:"1rem"}}><NavLink to = '/main' style = {{textDecoration: "none"}}>Current Projects</NavLink></span></Button>
+        <Button><span style={{fontFamily: "'Noto Sans JP', sans-serif",fontSize:"1rem"}}><NavLink to = '/newPage' style = {{textDecoration: "none"}}>SPOC</NavLink></span></Button>
+        <Button><span style={{fontFamily: "'Noto Sans JP', sans-serif",fontSize:"1rem"}}><NavLink to = '/newPage' style = {{textDecoration: "none"}}>Imp Links</NavLink></span></Button>
+        <Button><span style={{fontFamily: "'Noto Sans JP', sans-serif",fontSize:"1rem"}}><NavLink to = '/newPage' style = {{textDecoration: "none"}}>Social Team</NavLink></span></Button>
       </ButtonGroup>
     </div>
   );

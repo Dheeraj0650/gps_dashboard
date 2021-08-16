@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom';
 
 function Navbar(){
 return (<nav class="navbar navbar-expand-lg navbar-light" style={{backgroundColor:"white"}}>
-      <NavLink to = "/" style = {{textDecoration: "none"}}><a class="navbar-brand" href="#" style={{fontFamily: "'Noto Sans JP', sans-serif",fontSize:"2.2rem"}}><Logo /><span style={{color:"#6a197d"}}>GPS Dashboard</span></a></NavLink>
+      <NavLink to = "/main" style = {{textDecoration: "none"}}><a class="navbar-brand" href="#" style={{fontFamily: "'Noto Sans JP', sans-serif",fontSize:"2.2rem"}}><Logo /><span style={{color:"#6a197d"}}>GPS Dashboard</span></a></NavLink>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
