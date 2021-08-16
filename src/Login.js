@@ -1,5 +1,6 @@
+import {Redirect,Router} from 'react-router-dom';
 
-export default function(){
+export default function(props){
 
   function fetctUsers(name,password){
     fetch('https://pacific-tundra-98620.herokuapp.com/users/' + name + "/" + password)
@@ -9,17 +10,17 @@ export default function(){
         var p = Promise.resolve(data);
          p.then(function(values) {
             console.log(values)
-
+            props.onLogin(true);
          });
     })
   }
 
   const clickHandler = (event) => {
       event.preventDefault();
-      console.log(event.target);
-      const name = event.target.email;
-      const password = event.target.pass;
-      console.log("bye " + name + " " + password);
+      console.log(event.target.email.value);
+      console.log(event.target.pass.value);
+      const name = event.target.email.value;
+      const password = event.target.pass.value;
       fetctUsers(name,password);
   }
 
@@ -31,7 +32,7 @@ export default function(){
   					<img src="images/img-01.png" alt="IMG"/>
   				</div>
 
-  				<form class="login100-form validate-form" action="/urlencoded?firstname=sid&lastname=sloth" method="POST" enctype="application/x-www-form-urlencoded" onSubmit = {clickHandler}>
+  				<form class="login100-form validate-form" onSubmit = {clickHandler}>
   					<span class="login100-form-title">
   						Member Login
   					</span>
@@ -53,7 +54,7 @@ export default function(){
   					</div>
 
   					<div class="container-login100-form-btn">
-  						<button class="login100-form-btn form-actions" >
+  						<button class="login100-form-btn" type="submit" value = "submit">
   							Login
   						</button>
   					</div>
