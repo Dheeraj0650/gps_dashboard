@@ -21,7 +21,9 @@ function App() {
     }, []);
 
     const loginHandler = (value) => {
-      localStorage.setItem('isLoggedIn', '1');
+      if(value === true){
+        localStorage.setItem('isLoggedIn', '1');
+      }
       setIsLoggedIn(value)
     }
 
@@ -44,7 +46,7 @@ function App() {
                       <Navbar onLogout={logoutHandler} />
                   </div>
                   <div class="navbar-container gps-navbar">
-                      <Navbar_2/>
+                      {isLoggedIn && <Navbar_2/>}
                   </div>
                   <div class="projects-part">
                     <Route path = '/main' exact>
