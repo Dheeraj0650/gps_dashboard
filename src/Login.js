@@ -5,11 +5,9 @@ export default function(props){
   function fetctUsers(name,password){
     fetch('https://pacific-tundra-98620.herokuapp.com/users/' + name + "/" + password)
     .then((response) => {
-        console.log(response);
         var data = response.json();
         var p = Promise.resolve(data);
          p.then(function(values) {
-            console.log(values)
             props.onLogin(true);
          });
     })
@@ -17,8 +15,6 @@ export default function(props){
 
   const clickHandler = (event) => {
       event.preventDefault();
-      console.log(event.target.email.value);
-      console.log(event.target.pass.value);
       const name = event.target.email.value;
       const password = event.target.pass.value;
       fetctUsers(name,password);

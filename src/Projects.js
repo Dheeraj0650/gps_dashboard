@@ -34,7 +34,6 @@ const Project = () => {
           var data = response.json();
           var p = Promise.resolve(data);
            p.then(function(values) {
-              console.log(values)
               setProjectsArray(values)
            });
       })
@@ -45,7 +44,6 @@ const Project = () => {
           var data = response.json();
           var p = Promise.resolve(data);
            p.then(function(values) {
-             console.log(values)
              setProjectsArray(values)
            });
       })
@@ -58,7 +56,6 @@ const Project = () => {
         var data = response.json();
         var p = Promise.resolve(data);
          p.then(function(values) {
-            console.log(values)
             setAnnouncementsArray(values)
          });
     })
@@ -69,7 +66,6 @@ const Project = () => {
     fetctAnnouncements();
   },[])
 
-  console.log('hello_1' + projectsArray);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
