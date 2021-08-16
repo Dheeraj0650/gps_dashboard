@@ -8,7 +8,12 @@ export default function(props){
         var data = response.json();
         var p = Promise.resolve(data);
          p.then(function(values) {
-            props.onLogin(true);
+            if(values === true){
+              props.onLogin(true);
+            }
+            else{
+              props.onLogin(false);
+            }
          });
     })
   }

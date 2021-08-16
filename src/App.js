@@ -52,10 +52,12 @@ function App() {
                       {!isLoggedIn && <Redirect to="/" />}
                     </Route>
                     <Route path = '/project-details/:name/:country/:city'>
-                      <ProjectDetails />
+                      {isLoggedIn && <ProjectDetails />}
+                      {!isLoggedIn && <Redirect to="/" />}
                     </Route>
                     <Route path = "/newPage">
-                      <NewPage />
+                      {isLoggedIn && <NewPage />}
+                      {!isLoggedIn && <Redirect to="/" />}
                       <span style={{color:"#6a197d",position:"absolute",left:"37%",fontFamily: "'Noto Sans JP', sans-serif",fontSize:"2rem"}}>Page Under Development</span>
                     </Route>
                     <Route path = '/' exact>
